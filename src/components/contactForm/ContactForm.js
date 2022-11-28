@@ -7,9 +7,19 @@ export const ContactForm = ({
   setPhone,
   email,
   setEmail,
-  handleSubmit
+  handleSubmit,
+  duplicate,
 }) => {
   return (
-    ContactForm
+    <form onSubmit={handleSubmit}>
+      <label htmlFor='name'>Name:</label>
+      <input type='text' id='name' value={name} onChange={(e) => {setName(e.target.value)}} required/>
+      {duplicate && (<><span style={{color:'red'}}>Name Already Exists!</span><br/></>)}
+      <label htmlFor='phone'>Phone:</label>
+      <input type='tel' id='phone' value={phone} placeholder="800-555-5555" pattern='^[2-9]\d{2}-\d{3}-\d{4}$' onChange={(e) => {setPhone(e.target.value)}} required/>
+      <label htmlFor='email'>Email:</label>
+      <input type='email' id='email' value={email} onChange={(e) => {setEmail(e.target.value)}} required/>
+      <button type="submit">Add</button>
+    </form>
   );
 };
