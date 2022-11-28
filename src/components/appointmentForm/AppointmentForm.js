@@ -18,6 +18,10 @@ export const AppointmentForm = ({
       .split("/");
     return `${year}-${month.padStart(2, "0")}-${day.padStart(2, "0")}`;
   };
+  const buttonStyle={backgroundColor:'#03a8d8',
+  border:'1px solid #03a8d8', borderRadius:'5px',width:'100%',color:'white',
+  height: '50px', fontSize: '20px', fontWheight:'600'
+}
 
   return (
     <form onSubmit={handleSubmit}>
@@ -28,7 +32,7 @@ export const AppointmentForm = ({
       <label htmlFor="time">Time:</label>
       <input type='time' id='time' value={time} onChange={e => setTime(e.target.value)} required></input>
       <ContactPicker contacts={contacts} onChange={(e) => {setContact(e.target.value)}} />
-      <button type="submit">Add</button>
+      <button type="submit" style={buttonStyle}>Add</button>
     </form>
   );
 };
